@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Math Services</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<h1>Calculadora de Primos y Factores</h1>
+<form id="mathForm">
+    <label for="value">Numero:</label><br>
+    <input type="number" id="value" name="value"><br><br>
+    <label for="operation">Operacion:</label><br>
+    <select id="operation">
+        <option value="factors">Factores</option>
+        <option value="primes">Numeros Primos</option>
+    </select>
+    <input type="button" value="Submit" onclick="loadGetMsg()">
+</form>
+
+<div id="getrespmsg"></div>
+
+<script>
+    function loadGetMsg() {
+        const value = document.getElementById("value").value;
+        const operation = document.getElementById("operation").value;
+        const url = "/proxy/"+operation+"?value="+value;
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            document.getElementById("getrespmsg").innerHTML =
+            this.responseText;
+        }
+        xhttp.open("GET", url);
+        xhttp.send();
+    }
+</script>
+</body>
+</html>
