@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 public class ProxyController {
-    List<String>Urls= Arrays.asList("http://localhost:8080", "http://localhost:8080");
+    List<String>Urls= Arrays.asList("http://ec2-44-203-110-239.compute-1.amazonaws.com:8080", "http://ec2-54-166-84-175.compute-1.amazonaws.com:8080");
     int currentIndex=0;
 
     @GetMapping("proxy/factors")
