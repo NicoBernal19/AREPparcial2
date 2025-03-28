@@ -34,7 +34,11 @@ public class ProxyController {
 
     private String getNextUrl(){
         String url = Urls.get(currentIndex);
-        currentIndex = (currentIndex+1)%2;
+        if(currentIndex==0){
+            currentIndex=1;
+        } else if(currentIndex==1){
+            currentIndex=0;
+        }
         return url;
     }
 
