@@ -34,10 +34,8 @@ public class PrimesController {
     }
 
     private boolean isPrime(int num){
-        for(int i=2; i<num; i++){
-            if(num==2){
-                return true;
-            }else if(num%2==0){
+        for(int i=2; i < num; i++){
+            if(num%i==0){
                 return false;
             }
         }
